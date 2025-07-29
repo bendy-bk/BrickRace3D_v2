@@ -11,9 +11,11 @@ public class LevelManager : Singleton<LevelManager>
     public Level[] levelPrefabs;
     public Bot botPrefab;
     public Player player;
-    public Vector3 FinishPoint => currentLevel.finishPoint.position;
+    public Vector3 FinishPoint => CurrentLevel.finishPoint.position;
 
-    public int CharacterAmount => currentLevel.botAmount + 1;
+    public int CharacterAmount => CurrentLevel.botAmount + 1;
+
+    public Level CurrentLevel { get => currentLevel; set => currentLevel = value; }
 
     private List<Bot> bots = new List<Bot>();
     private Level currentLevel;
@@ -35,7 +37,7 @@ public class LevelManager : Singleton<LevelManager>
     public void OnInit()
     {
         //init vi tri bat dau game
-        Vector3 index = currentLevel.startPoint.position;
+        Vector3 index = CurrentLevel.startPoint.position;
         float space = 2f;
         Vector3 leftPoint = ((CharacterAmount / 2) + (CharacterAmount % 2) * 0.5f - 0.5f) * space * Vector3.left + index;
 
@@ -48,7 +50,7 @@ public class LevelManager : Singleton<LevelManager>
 
         //update navmesh data
         NavMesh.RemoveAllNavMeshData();
-        NavMesh.AddNavMeshData(currentLevel.navMeshData);
+        NavMesh.AddNavMeshData(CurrentLevel.navMeshData);
 
         //init random mau
         List<ColorType> colorDatas = Utilities.SortOrder(colorTypes, CharacterAmount);
@@ -77,15 +79,15 @@ public class LevelManager : Singleton<LevelManager>
 
     public void LoadLevel(int level)
     {
-        if (currentLevel != null)
+        if (CurrentLevel != null)
         {
-            Destroy(currentLevel.gameObject);
+            Destroy(CurrentLevel.gameObject);
         }
 
         if (level < levelPrefabs.Length)
         {
-            currentLevel = Instantiate(levelPrefabs[level]);
-            currentLevel.OnInit();
+            CurrentLevel = Instantiate(levelPrefabs[level]);
+            CurrentLevel.OnInit();
         }
         else
         {

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Level : MonoBehaviour
 {
+    public string id;
     public NavMeshData navMeshData;
     public Transform startPoint;
     public Transform finishPoint;

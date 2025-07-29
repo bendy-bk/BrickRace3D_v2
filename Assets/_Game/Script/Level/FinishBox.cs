@@ -16,7 +16,7 @@ public class FinishBox : MonoBehaviour
             }
             else
             {
-                UIManager.Instance.OpenUI<Fail>();
+                UIManager.Instance.OpenUI<Lose>();
             }
 
             UIManager.Instance.CloseUI<Gameplay>();

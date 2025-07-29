@@ -18,7 +18,7 @@ public class PatrolState : IState<Bot>
         {
             if (t.BrickCount >= targetBrick)
             {
-                t.ChangeState(new AttackState());
+                t.ChangeState(new BuildState());
             }
             else
             {
@@ -39,7 +39,7 @@ public class PatrolState : IState<Bot>
 
             if (brick == null)
             {
-                t.ChangeState(new AttackState());
+                t.ChangeState(new BuildState());
             }
             else
             {
