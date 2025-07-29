@@ -54,17 +54,17 @@ public class LevelManager : Singleton<LevelManager>
 
         //init random mau
         List<ColorType> colorDatas = Utilities.SortOrder(colorTypes, CharacterAmount);
-        //
+        
 
         //set vi tri player
         int rand = Random.Range(0, CharacterAmount);
         player.TF.position = startPoints[rand];
         player.TF.rotation = Quaternion.identity;
         startPoints.RemoveAt(rand);
+
         //set color player
         player.ChangeColor(colorDatas[rand]);
         colorDatas.RemoveAt(rand);
-
         player.OnInit();
 
         for (int i = 0; i < CharacterAmount - 1; i++)
@@ -88,10 +88,6 @@ public class LevelManager : Singleton<LevelManager>
         {
             CurrentLevel = Instantiate(levelPrefabs[level]);
             CurrentLevel.OnInit();
-        }
-        else
-        {
-            //TODO: level vuot qua limit
         }
     }
 

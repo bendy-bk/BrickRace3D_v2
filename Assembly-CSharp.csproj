@@ -91,7 +91,6 @@
     <Compile Include="Assets\_Game\Script\ColorObject.cs" />
     <Compile Include="Assets\_Game\Script\Manager\GameManager.cs" />
     <Compile Include="Assets\_Game\Script\Level\Level.cs" />
-    <Compile Include="Assets\_Game\Script\Test.cs" />
     <Compile Include="Assets\GUI PRO Kit - Casual Game\Scripts\PanelCasualGame.cs" />
     <Compile Include="Assets\EditorButton_PlayerPref\Singleton\SingletonDontDestroy.cs" />
     <Compile Include="Assets\_Game\Script\Character\PlayerBrick.cs" />
